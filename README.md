@@ -4,7 +4,7 @@ This folder is for people who would like to install Linux Mint 20.2 Cinnamon on 
 
 Find the ISO here: https://drive.google.com/drive/folders/1503hbWvWguvKIay_8dgrfbcWsqJ5UkLk?usp=sharing
 
-Be sure to verify the SHA sum!
+Be sure to verify the SHA sums!
 
 
 # Installation
@@ -25,7 +25,7 @@ sudo arch-chroot /mnt
 ```
 You'll now be in a chroot.
 
-e) Install a T2 Ubuntu Kernel, and install DKMS modules **for that kernel** (use the -k option when installing that kernel).
+e) Install a T2 Ubuntu Kernel, and install DKMS modules **for that kernel** (use the -k option when installing that kernel). See the T2 Linux wiki for more details.
 
 f) Install GRUB without writing to the NVRAM: `grub-install --removable --no-nvram --efi-directory=/boot/efi --bootloader-id=GRUB --target=x86_64-efi`
 
@@ -33,9 +33,11 @@ g) Modify /etc/default/grub - add to the line `GRUB_CMDLINE_LINUX` (in the quote
 
 h) Run `update-grub`
 
-g) Run the command `exit` to exit the chroot, `sudo umount /mnt/boot/efi && sudo umount /mnt` to unmount everything, and `sudo reboot`!
+i) Install anything else you want/need, move WiFi files, configure Audio, etc. See the T2 Linux Wiki for more details.
 
-h) You're done!
+j) Run the command `exit` to exit the chroot, `sudo umount /mnt/boot/efi && sudo umount /mnt` to unmount everything, and `sudo reboot`!
+
+k) You're done! Hold Option on the next boot and you should see a grey "EFI Boot" entry - clicking that will lead you to your new Linux Mint install!
 
 
 ## Credits & Help
